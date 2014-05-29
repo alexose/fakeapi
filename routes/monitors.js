@@ -1,9 +1,27 @@
-var express = require('express');
-var router = express.Router();
+module.exports.index = function(req, res){
+    var data = {
+        title: 'Express',
+        routes : routes.routes
+    }
 
-/* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource');
-});
+    res.render('index', data);
+};
 
-module.exports = router;
+module.exports.create = function(req, res){
+    var create = {
+        message : "Testing 123"
+    }
+
+    res.send(create);
+};
+
+module.exports.list= function(req, res){
+
+    var users = {
+        1 : 'test',
+        2 : 'test',
+        3 : 'test'
+    }
+
+    res.send(users);
+};

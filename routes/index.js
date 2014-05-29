@@ -1,16 +1,10 @@
-var express = require('express');
-var router = express.Router();
 var routes = require('../routes');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-
+module.exports.index = function(req, res){
     var data = {
-        title: 'Express',
+        title: 'Crimson Hexagon Fake API Service',
         routes : routes.routes
     }
 
-  res.render('index', data);
-});
-
-module.exports = router;
+    res.render('index', data);
+};
