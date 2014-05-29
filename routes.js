@@ -1,12 +1,15 @@
-// Routes list
+// Custom router setup for CH.
+var Routes = function(){}
 
-var Routes = function(){
+Routes.prototype.init = function(app){
 
-}
-
-Routes.prototype.init = function(){
     this.routes.forEach(function(d){
+        var method   = d[0],
+            name     = d[1],
+            endpoint = d[2];
 
+        // Create route
+        app[method](endpoint, require('./routes/' + name));
     });
 }
 
@@ -15,6 +18,6 @@ Routes.prototype.routes = [
     [ 'get',    'index',        '/' ],
     [ 'get',    'users',   '/users' ],
     [ 'get', 'monitors', '/monitors'],
-]
+];
 
-modules.exports = Routes;
+module.exports = new Routes();
